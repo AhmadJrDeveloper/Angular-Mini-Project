@@ -1,0 +1,155 @@
+.page-container {
+  background-color: #303030;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+.main-container {
+  margin: 1.5rem 1rem 1rem 1rem;
+  /* margin-top: 2rem; */
+  border-radius: 1rem;
+  background-color: #424242;
+  height: fit-content;
+  /* max-height: 45rem; */
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  /* background-color: red; */
+  margin-top: 2px;
+  height: 2.5rem;
+}
+
+.main-header h1 {
+  color: white;
+}
+
+.white-icon {
+  color: white;
+  margin-right: 15px;
+}
+
+.user-icon-container {
+  margin-left: 15px;
+  background-color: white;
+  width: 3.5rem;
+  border-radius: 5px;
+  height: 1.3rem;
+  /* margin-bottom: 10px; */
+  margin-top: 6.5px;
+  display: flex;
+  justify-content: center;
+  /* column-gap: 5px; */
+  align-items: center;
+  font-weight: bold;
+}
+
+.numberOfApplications {
+  font-size: 0.7rem;
+  margin-top: 0.8rem;
+  /* background-color: red; */
+}
+
+.user-icon {
+  font-weight: bold;
+  font-size: 15px;
+  margin-top: 12px;
+  /* background-color: blue; */
+}
+
+.filter-icon {
+  padding-right: 10px;
+  color: white;
+}
+
+.filter-input {
+  width: 100%;
+  align-self: center;
+  /* margin-bottom: 10px; */
+  height: 3rem;
+  background-color: #303030;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  margin-left: 5px;
+  font-size: 1rem;
+}
+
+.filter-input:focus {
+  outline: none;
+  /* padding-left: 10px; */
+}
+
+.filter-input::placeholder {
+  padding-left: 3px;
+  margin-top: 5rem;
+  font-size: 1rem;
+}
+
+.view-section {
+  /* background-color: red; */
+  align-content: center;
+  height: fit-content;
+  /* max-height: 60vh; */
+  width: 100%;
+}
+
+.pending-apps {
+  display: flex;
+}
+
+.input-container {
+  display: flex;
+  background-color: #303030;
+  align-items: center;
+  border-radius: 5px;
+  margin-top: 5px;
+  /* margin-bottom: 5px; */
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  height: 2rem;
+  align-items: first baseline;
+}
+
+.footer-img {
+  margin-top: 10px;
+  width: 7%;
+  align-self: center;
+  margin-bottom: 27px;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 768px) {
+  .footer-img {
+    margin-top: 1rem;
+    width: 30%;
+  }
+
+  .main-title {
+    font-size: 1rem;
+  }
+
+  .filter-container {
+    width: 22rem;
+    margin: 0;
+    margin-bottom: 10px;
+  }
+
+  .responsive-list-view {
+    background-color: pink;
+  }
+}
+
+mat-grid-tile {
+  background: lightblue;
+}

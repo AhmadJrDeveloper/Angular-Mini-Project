@@ -1,0 +1,56 @@
+<div class="page-container">
+  <app-navbar></app-navbar>
+  <main class="main-container">
+    <header class="main-header">
+      <div class="pending-apps">
+        <h1 class="main-title">Pending Applications</h1>
+        <div *ngIf="!isGrid" class="user-icon-container">
+          <mat-icon
+            class="user-icon"
+            aria-hidden="false"
+            aria-label="Example user icon"
+            fontIcon="people"
+          ></mat-icon>
+          <p class="numberOfApplications">{{ numberOfApplications }}</p>
+        </div>
+      </div>
+
+      <mat-icon
+        aria-hidden="false"
+        aria-label="Toggle view icon"
+        [fontIcon]="isGrid ? 'list_on' : 'grid_on'"
+        (click)="toggleGrid()"
+        style="cursor: pointer; color: white;"
+      ></mat-icon>
+
+    </header>
+    <div class="input-container">
+      <input
+        type="text"
+        placeholder="Search by Applicant's Info"
+        class="filter-input"
+        [(ngModel)]="searchApplication"
+        (input)="applyFilter()"
+      />
+      <mat-icon
+        class="filter-icon"
+        aria-hidden="false"
+        aria-label="Filter icon"
+        fontIcon="filter_list"
+      ></mat-icon>
+    </div>
+
+    <mat-divider style="margin-top: 18px"></mat-divider>
+    <div class="view-section">
+      <ng-container *ngIf="isGrid; else listView">
+        <app-grid-view [apps]="filteredApplications"></app-grid-view>
+      </ng-container>
+      <ng-template #listView>
+        <app-list-view [apps]="filteredApplications"></app-list-view>
+      </ng-template>
+    </div>
+  </main>
+  <footer class="footer">
+    <img *ngIf="isGrid" src="../../../assets/logo-white.svg" alt="" class="footer-img" />
+  </footer>
+</div>

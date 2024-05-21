@@ -1,0 +1,74 @@
+<div class="grid-container">
+  <div class="cards-container">
+    @if(apps.length > 0) {
+    <div class="card" *ngFor="let app of apps">
+      <div class="image-with-tier-container">
+        <img class="user-image" src="{{ app.image }}" alt="user-image" />
+        <br />
+        <div class="tier">
+          <label class="tier-label" for="">Tier</label>
+          <p class="tier-title">{{ app.tier }}</p>
+        </div>
+      </div>
+      <div class="application-info-container">
+        <p class="reference">Ref. {{ app.referenceNumber }}</p>
+        <p class="submit-date">
+          Submitted: {{ app.submitData | date : "yyyy-MM-dd" }}
+          {{ app.submitData | date : "shortTime" }}
+        </p>
+
+        <p class="name">
+          {{ app.firstName | uppercase }}, {{ app.lastName | uppercase }}
+        </p>
+        <p class="gender">{{ app.gender }}, {{ app.age }}</p>
+        <div
+          style="display: flex; flex-direction: column"
+          class="issuer-arrivalCarrier"
+        >
+          <div class="issuer-arrivalCarrier-labels">
+            <p>Issuer</p>
+            <p>Arrival Carrier</p>
+          </div>
+          <div class="issuer-arrivalCarrier-title">
+            <div style="display: flex; align-items: center; column-gap: 7px">
+              <img class="flag-image" src="{{ app.issuerFlag }}" alt="" />
+              <p class="issuer">{{ app.issuer }}</p>
+            </div>
+            <div class="carrier-container">
+              @if(app.carrierLogo) {
+                <img class="carrier-logo" src="{{ app.carrierLogo }}" alt="" />
+              }
+              @else {
+                <div class="no-carrier-logo-placeholder">
+                  {{ app.arrivalCarrier.slice(0, 2).toUpperCase() }}
+                </div>
+              }
+              <p class="arrive-carrier">{{ app.arrivalCarrier }}</p>
+            </div>
+            
+          </div>
+          <div class="arrival-container">
+            <p class="arrival-date">Arrival Date</p>
+            <div class="arrival-elements">
+              <p class="arrive-date">
+                {{ app.arrivalDate | date : "yyyy-MM-dd" }}
+              </p>
+              <!-- <button class="arrive-status">{{ app.status }}</button> -->
+              <button
+                class="arrive-status"
+                [style.background-color]="getStatusBackgroundColor(app.status)"
+                [class.text-white]="app.status !== 'pending'"
+              >
+                {{ capitalizeFirstLetter(app.status) }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  }
+  @else {
+    <h2 class="no-applicant-text">No Applicants with These Info</h2>
+  }
+  </div>
+</div>

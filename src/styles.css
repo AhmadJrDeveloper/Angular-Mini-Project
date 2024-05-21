@@ -1,0 +1,9 @@
+/* Core Grid CSS */
+@import 'ag-grid-community/styles/ag-grid.css';
+/* Quartz Theme Specific CSS */
+@import 'ag-grid-community/styles/ag-theme-quartz.css';
+
+@import '../node_modules/ag-grid-community/styles/ag-theme-alpine.css';
+html, body { height: 100%; background-color: #303030; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
